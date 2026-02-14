@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Emergency Pyaar 💙</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body, html { margin:0; padding:0; font-family:'Roboto',sans-serif; background:#0b1d3f; color:#fff; overflow-x:hidden; position:relative; }
+.page { display:none; width:100vw; height:100vh; padding:40px; box-sizing:border-box; position:relative; text-align:center; }
+.page.active { display:block; animation: fadein 1s ease-in; }
+@keyframes fadein { from {opacity:0} to {opacity:1} }
+
+h1,h2,h3 { font-family:'Great Vibes',cursive; margin:20px 0; }
+p { font-size:1.2em; line-height:1.6em; margin:15px 0; }
+ul { text-align:left; margin-left:20%; }
+.btn { padding:15px 30px; font-size:1.2em; margin:20px; border:none; border-radius:10px; cursor:pointer; transition: all 0.3s ease; }
+.btn-yes { background:#ff4081; color:#fff; }
+.btn-no { background:#00bcd4; color:#fff; }
+
+.gallery img { width:200px; margin:10px; border-radius:15px; cursor:pointer; transition: all 1s ease; opacity:0; transform: translateY(50px) rotate(-10deg);}
+.gallery img.active { opacity:1; transform: translateY(0) rotate(0deg); }
+
+.heart,.bubble,.confetti-piece { position:absolute; pointer-events:none; }
+.heart { font-size:20px; color:#ff4081; animation: floatUp linear infinite; }
+@keyframes floatUp { 0%{transform:translateY(100vh) scale(0.5);opacity:0.5;}50%{opacity:1;}100%{transform:translateY(-10vh) scale(1);opacity:0;} }
+
+.bubble { width:15px; height:15px; background:rgba(255,255,255,0.6); border-radius:50%; animation:bubbleRise linear infinite; }
+@keyframes bubbleRise { 0%{transform:translateY(100vh);opacity:0;}50%{opacity:1;}100%{transform:translateY(-10vh);opacity:0;} }
+
+.confetti-piece { width:10px;height:10px; opacity:0.8; animation:confettiFall linear infinite; }
+@keyframes confettiFall { 0%{transform:translateY(0) rotate(0deg);}100%{transform:translateY(100vh) rotate(360deg);} }
+
+.background-text { position:absolute; top:50%; left:50%; font-size:8em; color:rgba(255,255,255,0.05); transform:translate(-50%,-50%) rotate(-30deg); white-space:nowrap; pointer-events:none; z-index:0;}
+</style>
+</head>
+<body>
+
+<div class="background-text">UDITANZ FOREVER</div>
+
+<!-- Password Page -->
+<div class="page active" id="page-password">
+    <div style="margin-top:20vh;">
+        <h1>Welcome 💙</h1>
+        <p>Enter password to unlock your Emergency Pyaar:</p>
+        <input type="password" id="password" placeholder="DDMMYYYY" style="padding:15px;font-size:1.2em;border-radius:10px;border:none;">
+        <button class="btn btn-yes" onclick="checkPassword()">Unlock</button>
+        <p id="pw-error" style="color:#ff6b6b; display:none;">Wrong password! Try again.</p>
+    </div>
+</div>
+
+<!-- Page 1: Happy Valentine -->
+<div class="page" id="page-1">
+    <h1>Happy Valentine’s Day 💙</h1>
+    <h2>From: Your Cutie</h2>
+    <h2>To: Udit</h2>
+    <button class="btn btn-yes" onclick="nextPage()">Next</button>
+</div>
+
+<!-- Page 2: Love Letter -->
+<div class="page" id="page-2">
+    <h1>My Love Letter</h1>
+    <p>Dear Udit,</p>
+    <p>This is not just a letter. This is my heart, finally sitting down and talking to you.</p>
+    <p>I don’t know how or when it happened, but somewhere between chaos, duties, exhaustion, and random conversations  you became my safest place. You became the person my mind looks for in every quiet moment and every overwhelming one.</p>
+    <p>I know I’m not easy to love. I know I overthink, feel deeply, break silently, and sometimes need reassurance more than I admit. Yet you stayed. You understood me without me having to explain myself fully. You showed up  again and again  not because you had to, but because you wanted to.</p>
+    <p>Thank you for doing everything for me even when I’m hard to love. Thank you for being patient when I’m emotional, calm when I’m anxious, and steady when I feel like I’m falling apart. You don’t even realize how much strength you give me just by being you.</p>
+    <p>Loving you feels like breathing  natural, necessary, effortless. In a world that’s loud and demanding, you are my quiet certainty.</p>
+    <p>This is my emergency pyaar for you — permanent, unconditional, and forever.</p>
+    <p>With all my love,<br>Your Cutie 💙</p>
+    <button class="btn btn-yes" onclick="nextPage()">Next</button>
+</div>
+
+<!-- Page 3: Aren't We? -->
+<div class="page" id="page-3">
+    <h1>Our Special Moment</h1>
+    <p>18/06/2025  Night after Utsav Event</p>
+    <p>I joked that if someone reads our messages, they’d think we are in love.</p>
+    <h2>Aren’t we?</h2>
+    <p>That was our indirect proposal, simple and perfect.</p>
+    <button class="btn btn-yes" onclick="nextPage()">Next</button>
+</div>
+
+<!-- Page 4: Gallery -->
+<div class="page" id="page-4">
+    <h1>Memories Gallery</h1>
+    <div class="gallery">
+        <img src="https://www.dropbox.com/scl/fi/22zyqz6a84set3ewwg35w/IMG_5822.JPG?rlkey=9nfrqx1vcy9o8sedyxpnaodip&st=obka28ax&raw=1">
+        <img src="https://www.dropbox.com/scl/fi/xt9eyfpx3mvh3uuf2194n/Picsart_25-09-16_11-04-54-875.jpg?rlkey=hyo8yqo4l7cwf16mpxph8ffqx&st=q7vjq7d3&raw=1">
+        <img src="https://www.dropbox.com/scl/fi/0d5xt4th0xvs2pkjf5zh7/Snapchat-496180822.jpg?rlkey=qjcbpi9hir7itfkrun1edxaog&st=pw2j0qbo&raw=1">
+        <img src="https://www.dropbox.com/scl/fi/tlz12z7h97o59t40wmhdw/IMG_5831_1.JPG?rlkey=pmappi8whcimerpjoz2vgcger&st=rgy2cn6b&raw=1">
+        <img src="https://www.dropbox.com/scl/fi/7j4pc5nig7w788s0cf022/IMG-20250531-WA0039.jpg?rlkey=l3egr3q7nfttia66j89l6jp9y&st=8hm4j5of&raw=1">
+    </div>
+    <button class="btn btn-yes" onclick="nextPage();revealImages('page-4')">Next</button>
+</div>
+
+<!-- Page 5: Why I Love You -->
+<div class="page" id="page-5">
+    <h1>Why I Love You</h1>
+    <ul>
+        <li>Because you are incredibly cute, even when you try not to be</li>
+        <li>Because you’re a little fattu, and that makes you even more adorable</li>
+        <li>Because you are the most intelligent person I know</li>
+        <li>Because you are capable, confident, and dependable</li>
+        <li>Because you are exceptionally talented</li>
+        <li>Because you are an amazing ER physician</li>
+        <li>Because you are going to be an outstanding critical care physician</li>
+        <li>Because you stay calm in the ER when everything is falling apart</li>
+        <li>Because you handle pressure like it’s second nature</li>
+        <li>Because you make chaos feel manageable</li>
+        <li>Because you make me feel safe</li>
+    </ul>
+    <button class="btn btn-yes" onclick="nextPage()">Next</button>
+</div>
+
+<!-- Page 6: Secret -->
+<div class="page" id="page-6">
+    <h1>Secret 💌</h1>
+    <p>I love you and will always love you — no matter what.</p>
+    <p>Whenever I miss you, I smell your shirt and cry quietly, because that’s the closest I can get to you in that moment.</p>
+    <button class="btn btn-yes" onclick="nextPage()">Next</button>
+</div>
+
+<!-- Page 7: Future -->
+<div class="page" id="page-7">
+    <h1>Our Future Together 💖</h1>
+    <p>To be with you forever</p>
+    <p>To build a life and a family with you</p>
+    <p>To grow, struggle, succeed, and rest — together</p>
+    <p>No matter where life takes us, I want it to be with you.</p>
+    <button class="btn btn-yes" onclick="nextPage()">Next</button>
+</div>
+
+<!-- Page 8: Will You Be My Valentine? -->
+<div class="page" id="page-8">
+    <h1>Will You Be My Valentine?</h1>
+    <button class="btn btn-yes" id="btnYes" onclick="valentineYes()">Yes 💖</button>
+    <button class="btn btn-no" id="btnNo">No 😢</button>
+    <div id="gifContainer" style="margin-top:20px;"></div>
+</div>
+
+
+<!-- Page 9: Song -->
+<div class="page" id="page-9">
+    <h1>Our Song 🎶</h1>
+    <audio controls autoplay>
+        <source src="https://www.dropbox.com/scl/fi/rq5rn2l3f8joi51yjmuf5/Aisa-Kyu-Hota-Hai-Tere-Jane-Ke-Baad-128-Kbps-SongsPk.com.se.mp3?rlkey=exqbv8npw888si611h2ty2t17&st=ih1vd17n&raw=1" type="audio/mpeg">
+    </audio>
+    <button class="btn btn-yes" onclick="nextPage()">Next</button>
+</div>
+
+<!-- Page 10: Dudu Bubu Animation -->
+<div class="page" id="page-10">
+    <h1>Dudu Bubu 💕</h1>
+    <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" style="width:300px; border-radius:15px;">
+    <button class="btn btn-yes" onclick="nextPage()">Next</button>
+</div>
+
+<!-- Page 11: Ending -->
+<div class="page" id="page-11">
+    <h1>Cutie Go To CT 🚑💙</h1>
+</div>
+
+<!-- Hearts/Bubbles -->
+<div id="heartsContainer"></div>
+<div id="bubblesContainer"></div>
+<div id="confettiContainer"></div>
+
+<script>
+let currentPage=1;
+
+// Password
+function checkPassword(){
+    let pw=document.getElementById("password").value;
+    if(pw==="18062025"){
+        document.getElementById("page-password").classList.remove("active");
+        document.getElementById("page-1").classList.add("active");
+        spawnHearts(20); spawnBubbles(15);
+    }else{
+        document.getElementById("pw-error").style.display="block";
+    }
+}
+
+function nextPage(){
+    document.getElementById("page-"+currentPage).classList.remove("active");
+    currentPage++;
+    document.getElementById("page-"+currentPage).classList.add("active");
+    spawnHearts(15); spawnBubbles(10);
+    if(currentPage===4) revealImages('page-4');
+}
+
+// Image reveal
+function revealImages(pageId){
+    let images=document.getElementById(pageId).querySelectorAll('img');
+    images.forEach((img,i)=>{
+        setTimeout(()=>{img.classList.add('active');}, i*300);
+    });
+}
+
+// Hearts
+function spawnHearts(num){
+    for(let i=0;i<num;i++){
+        let heart=document.createElement('div');
+        heart.className='heart';
+        heart.style.left=Math.random()*100+'vw';
+        heart.style.fontSize=(10+Math.random()*30)+'px';
+        heart.style.animationDuration=(3+Math.random()*5)+'s';
+        heart.innerHTML='❤️';
+        document.body.appendChild(heart);
+        setTimeout(()=>{ heart.remove(); },8000);
+    }
+}
+
+// Bubbles
+function spawnBubbles(num){
+    for(let i=0;i<num;i++){
+        let bubble=document.createElement('div');
+        bubble.className='bubble';
+        bubble.style.left=Math.random()*100+'vw';
+        bubble.style.width=bubble.style.height=(5+Math.random()*20)+'px';
+        bubble.style.animationDuration=(4+Math.random()*4)+'s';
+        document.body.appendChild(bubble);
+        setTimeout(()=>{ bubble.remove(); },9000);
+    }
+}
+
+
+// Confetti
+function spawnConfetti(num){
+    for(let i=0;i<num;i++){
+        let conf=document.createElement('div');
+        conf.className='confetti-piece';
+        conf.style.left=Math.random()*100+'vw';
+        conf.style.background=['#ff4081','#ffeb3b','#00bcd4','#ff6b6b'][Math.floor(Math.random()*4)];
+        conf.style.animationDuration=(2+Math.random()*3)+'s';
+        document.body.appendChild(conf);
+        setTimeout(()=>{ conf.remove(); },5000);
+    }
+}
+// Valentine Buttons
+let btnNo = document.getElementById("btnNo");
+
+btnNo.addEventListener("mouseenter", moveNo);
+btnNo.addEventListener("touchstart", moveNo); // For mobile touch
+
+function moveNo(){
+    let maxX = window.innerWidth - btnNo.offsetWidth;
+    let maxY = window.innerHeight - btnNo.offsetHeight;
+    btnNo.style.position = "absolute";
+    btnNo.style.left = Math.random() * maxX + "px";
+    btnNo.style.top = Math.random() * maxY + "px";
+}
+
+function valentineYes(){
+    let btn = document.getElementById("btnYes");
+    btn.style.transform = "scale(1.5)";
+    btn.innerText = "I knew you would say yes my fattu 💖";
+    spawnConfetti(50);
+
+    // Show GIF
+    let gif = document.createElement('img');
+    gif.src = "https://media.tenor.com/d0B9Ke2mdxMAAAAM/%D9%88%D8%B1%D8%AF.gif"; // Direct GIF link
+    gif.style.width = "300px";
+    gif.style.marginTop = "20px";
+    document.getElementById("gifContainer").appendChild(gif);
+}
+</script>
+</body>
+</html>
